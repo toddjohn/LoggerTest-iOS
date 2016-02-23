@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        NSSetUncaughtExceptionHandler({ exception in
+            LogMessage.e("Uncaught exception: \(exception)")
+            LogMessage.flushLog()
+        })
         return true
     }
 
